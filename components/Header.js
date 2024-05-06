@@ -20,6 +20,9 @@ function Header() {
             SEARCH
           </button>
         </div>
+        <div>
+          <div></div>
+        </div>
       </div>
     </div>
   );
