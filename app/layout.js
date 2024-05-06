@@ -1,8 +1,15 @@
-import { Inter } from "next/font/google";
+import { Montserrat, Playfair } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import "react-photo-view/dist/react-photo-view.css";
+import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"] });
+
+const playfair = Playfair({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+});
 
 export const metadata = {
   title: "Kiinew",
@@ -12,11 +19,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} w-screen h-screen`}>
-        <section className="flex justify-center items-center">
+      <body
+        className={`${montserrat.className} ${playfair.variable} flex flex-col min-h-screen`}
+      >
+        <section className="sticky w-full z-[999] flex justify-center items-center mobile:my-[0] laptop:my-[70px]">
           <Header />
         </section>
-        <section className="px-[5%] py-[5%]">{children}</section>
+
+        <section className="">{children}</section>
+
+        <section>
+          <Footer />
+        </section>
       </body>
     </html>
   );

@@ -6,11 +6,18 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      mobile: "280px",
+      tablet: "640px",
+      laptop: "1024px",
+      desktop: "1280px",
+    },
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontFamily: {
+        playfair: ["var(--font-playfair)"],
+      },
+      boxShadow: {
+        "3xl": "0 80px 90px -5px rgba(0, 0, 0, 0.7)",
       },
     },
   },
