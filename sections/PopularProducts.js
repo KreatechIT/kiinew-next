@@ -99,7 +99,7 @@ function PopularProducts() {
           diam
         </p>
       </div>
-      <div className="w-full relative flex laptop:flex-row mobile:flex-col justify-center items-center mb-[100px]">
+      <div className="w-full relative flex laptop:flex-row mobile:flex-col content-center  pl-[5%] justify-center items-center mb-[100px]">
         <div
           onClick={() => {
             swiperRef.current.slidePrev();
@@ -116,7 +116,7 @@ function PopularProducts() {
           />
         </div>
 
-        <PhotoProvider className=" justify-center items-center">
+        <PhotoProvider className="laptop:h-[580px] mobile:h-0">
           <Swiper
             slidesPerView={4}
             pagination={{ type: "progressbar" }}
@@ -130,7 +130,7 @@ function PopularProducts() {
             }}
             modules={[Autoplay]}
             loop
-            className="laptop:h-[500px] mobile:h-0 w-[100%] flex laptop:flex-row mobile:flex-col justify-center items-center " // Adjust this height based on your preference
+            className="laptop:h-[580px] mobile:h-0 w-[90%] flex laptop:flex-row mobile:flex-col justify-center items-center " // Adjust this height based on your preference
           >
             {DummyProducts.map((product, index) => (
               <SwiperSlide key={index}>
@@ -144,7 +144,7 @@ function PopularProducts() {
                       setIsHovered(false);
                       setHoveredIndex(null);
                     }}
-                    className="w-full overflow-hidden relative h-full border-2 border-black/20"
+                    className="w-[96%] overflow-hidden relative h-full border-2 border-black/20"
                   >
                     {hoveredIndex == index && isHovered && (
                       <Fade className="w-full h-[75%] shadow-amber-600/70 shadow-3xl bg-amber-600/70 absolute z-[9]">
@@ -195,6 +195,7 @@ function PopularProducts() {
                     )}
                     <div>
                       <Image
+                        alt=""
                         src={product.image}
                         height={400}
                         width={400}

@@ -15,7 +15,7 @@ import MobileHeader from "./MobileHeader";
 
 const Paths = [
   { name: "Home", path: "/" },
-  { name: "Pages", path: "/pages" },
+  { name: "Shop", path: "/shop" },
   {
     name: "About",
     path: "/about",
@@ -127,7 +127,7 @@ function Header() {
               ))}
             </div>
             <div className="flex place-items-center space-x-[15px]">
-              <Link href="">
+              <Link href="/login">
                 <FontAwesomeIcon
                   icon={faUser}
                   color="black"
