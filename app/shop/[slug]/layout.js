@@ -1,11 +1,11 @@
 import React from "react";
 
 export const metadata = {
-  title: "Login",
-  description: "Login",
+  title: "Product",
+  description: "Product",
 };
 
-function layout({ children }) {
+function layout({ children, params }) {
   return (
     <div>
       <section>{children}</section>

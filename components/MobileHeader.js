@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Paths = [
   { name: "Home", path: "/" },
-  { name: "Pages", path: "/pages" },
+  { name: "Shop", path: "/shop" },
   {
     name: "About",
     path: "/about",
@@ -66,10 +67,19 @@ function MobileHeader({ active, drawerOpen, handleCloseDrawer }) {
             } laptop:translate-x-0 transition-transform laptop:hidden justify-center mobile:flex-col text-2xl  text-start items-start space-y-[20px] py-[40px] font-medium`}
           >
             {Paths.map((el, index) => (
-              <div>
+              <Link href={el.path} key={index} onClick={handleCloseDrawer}>
                 <h1>{el.name}</h1>
-              </div>
+              </Link>
             ))}
+            {localStorage.getItem("access_token") ? (
+              <Link href={"/profile"} onClick={handleCloseDrawer}>
+                <h1>Profile</h1>
+              </Link>
+            ) : (
+              <Link href={"/login"} onClick={handleCloseDrawer}>
+                <h1>Login/Register</h1>
+              </Link>
+            )}
           </ul>
         </div>
       </div>

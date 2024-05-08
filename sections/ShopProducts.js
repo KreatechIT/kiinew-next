@@ -11,6 +11,7 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 
 const DummyProducts = [
   {
+    id: 1,
     name: "WOODEN CHAIR",
     image:
       "https://demos.webicode.com/html/eco-shop-html/Single_Img_Demo/images/item-img-1-1.jpg",
@@ -19,6 +20,7 @@ const DummyProducts = [
     discount: 0,
   },
   {
+    id: 2,
     name: "MINIMALIST WOO TOYS",
     image:
       "https://demos.webicode.com/html/eco-shop-html/Single_Img_Demo/images/item-img-1-2.jpg",
@@ -27,6 +29,7 @@ const DummyProducts = [
     discount: 0,
   },
   {
+    id: 3,
     name: "CONCRETE SHAVING KIT",
     image:
       "https://demos.webicode.com/html/eco-shop-html/Single_Img_Demo/images/item-img-1-3.jpg",
@@ -35,6 +38,7 @@ const DummyProducts = [
     discount: 60,
   },
   {
+    id: 4,
     name: "PARAGON PENDANT",
     image:
       "https://demos.webicode.com/html/eco-shop-html/Single_Img_Demo/images/item-img-1-4.jpg",
@@ -43,6 +47,7 @@ const DummyProducts = [
     discount: 0,
   },
   {
+    id: 5,
     name: "WOODEN CHAIR",
     image:
       "https://demos.webicode.com/html/eco-shop-html/Single_Img_Demo/images/item-img-1-1.jpg",
@@ -51,6 +56,7 @@ const DummyProducts = [
     discount: 90,
   },
   {
+    id: 6,
     name: "MINIMALIST WOO TOYS",
     image:
       "https://demos.webicode.com/html/eco-shop-html/Single_Img_Demo/images/item-img-1-2.jpg",
@@ -59,6 +65,7 @@ const DummyProducts = [
     discount: 0,
   },
   {
+    id: 7,
     name: "CONCRETE SHAVING KIT",
     image:
       "https://demos.webicode.com/html/eco-shop-html/Single_Img_Demo/images/item-img-1-3.jpg",
@@ -67,6 +74,7 @@ const DummyProducts = [
     discount: 10,
   },
   {
+    id: 8,
     name: "PARAGON PENDANT",
     image:
       "https://demos.webicode.com/html/eco-shop-html/Single_Img_Demo/images/item-img-1-4.jpg",
@@ -75,6 +83,7 @@ const DummyProducts = [
     discount: 0,
   },
   {
+    id: 9,
     name: "WOODEN CHAIR",
     image:
       "https://demos.webicode.com/html/eco-shop-html/Single_Img_Demo/images/item-img-1-1.jpg",
@@ -83,6 +92,7 @@ const DummyProducts = [
     discount: 0,
   },
   {
+    id: 10,
     name: "MINIMALIST WOO TOYS",
     image:
       "https://demos.webicode.com/html/eco-shop-html/Single_Img_Demo/images/item-img-1-2.jpg",
@@ -124,8 +134,8 @@ function ShopProducts() {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <div className="flex">
-      <div className=" w-[20%] ml-[2%] mt-[60px]">
-        <div className="flex flex-col  items-start">
+      <div className="laptop:flex justify-center items-center flex-col mobile:hidden w-[20%] ml-[2%] mt-[60px]">
+        <div className="flex flex-col w-[90%] items-start">
           <div className="flex mb-[30px] place-items-center space-x-4 place-content-center">
             <div className="bg-amber-600 size-[10px]" />
             <p className="text-[23px] tracking-[5px]">Categories</p>
@@ -145,7 +155,7 @@ function ShopProducts() {
             </div>
           ))}
         </div>
-        <div className="flex flex-col mt-[60px] items-start">
+        <div className="flex flex-col w-[90%] mt-[60px] items-start">
           <div className="flex mb-[30px] place-items-center space-x-4 place-content-center">
             <div className="bg-amber-600 size-[10px]" />
             <p className="text-[23px] tracking-[5px]">Popular Tags</p>
@@ -164,7 +174,7 @@ function ShopProducts() {
             ))}
           </div>
         </div>
-        <div className="flex flex-col mt-[60px] items-start">
+        <div className="flex flex-col w-[90%] mt-[60px] items-start">
           <div className="flex mb-[30px] place-items-center space-x-4 place-content-center">
             <div className="bg-amber-600 size-[10px]" />
             <p className="text-[23px] tracking-[5px]">BRANDS</p>
@@ -185,12 +195,12 @@ function ShopProducts() {
           ))}
         </div>
       </div>
-      <div className="flex w-[80%] flex-col justify-center items-center">
-        <div className="h-auto flex w-[85%] flex-row py-[60px] justify-between items-center">
-          <p className="text-[20px] text-black/40">
+      <div className="flex laptop:w-[80%] mobile:w-full flex-col justify-center items-center">
+        <div className="h-auto flex mobile:w-full laptop:w-[85%] flex-row py-[60px] mobile:justify-center laptop:justify-between items-center">
+          <p className="mobile:text-[14px] mobile:hidden laptop:flex laptop:text-[20px] text-black/40">
             Showing 1 - 10 of 30 products
           </p>
-          <div className="space-x-[40px]">
+          <div className="mobile:space-x-0 laptop:space-x-[40px] flex flex-row">
             <Select
               className=""
               defaultValue="Sort By"
@@ -242,7 +252,7 @@ function ShopProducts() {
                         </Slide>
                         <Fade className="flex mt-[100px] justify-center items-center">
                           <div className="bg-white px-[20px] justify-between hover:scale-110 transition-all rounded-3xl w-[150px] h-[50px] flex place-items-center place-content-center">
-                            <Link href="">
+                            <Link href={`/shop/${product.id}`}>
                               <FontAwesomeIcon
                                 icon={faSearch}
                                 color="black"

@@ -58,11 +58,12 @@ function Header() {
         <button onClick={handleToggleDrawer}>
           <FontAwesomeIcon
             icon={faBars}
-            color="white"
+            color="black"
             style={{
               height: "40px",
               width: "40px",
             }}
+            className="bg-white p-1"
           />
         </button>
         <MobileHeader
@@ -127,7 +128,11 @@ function Header() {
               ))}
             </div>
             <div className="flex place-items-center space-x-[15px]">
-              <Link href="/login">
+              <Link
+                href={
+                  localStorage.getItem("access_token") ? "/profile" : "/login"
+                }
+              >
                 <FontAwesomeIcon
                   icon={faUser}
                   color="black"
