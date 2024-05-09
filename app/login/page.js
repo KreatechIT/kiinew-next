@@ -1,5 +1,5 @@
 "use client";
-import { Checkbox, ConfigProvider } from "antd";
+import { Checkbox, ConfigProvider, message } from "antd";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -7,14 +7,18 @@ import React, { useState } from "react";
 function Page() {
   const router = useRouter();
   const [showPass, setShowPass] = useState(false);
+  const [buttonText, setButtonText] = useState("Login");
+
   const [details, setDetails] = useState({
     email: "",
     password: "",
   });
+  const [messageApi, contextHolder] = message.useMessage();
   const handleLogin = async () => {
     try {
+      setButtonText("Logging In...");
       const response = await fetch(
-        "http://localhost:8000/wp-json/wp/v2/users/login/",
+        "http://localhost:8000/wp-json/custom/v1/login/",
         {
           method: "POST",
           headers: {
@@ -25,19 +29,26 @@ function Page() {
       );
 
       if (!response.ok) {
+        setButtonText("Something Went Wrong");
         throw new Error("Network response was not ok");
       }
 
       const data = await response.json();
-      await localStorage.setItem("access_token", data.access);
+      setButtonText("Successfully Logged In");
+      await window.localStorage.setItem("access_token", data.access);
       router.push("/");
       console.log("Response:", data);
     } catch (error) {
+      messageApi.open({
+        type: "error",
+        content: "Password or Mail is not correct",
+      });
       console.error("Error:", error);
     }
   };
   return (
     <div className="justify-center my-[40px] items-center flex flex-col">
+      {contextHolder}
       <h1 className="text-[40px] font-bold text-amber-600">Login</h1>
       <div className="mt-[40px]">
         <div>
@@ -78,11 +89,22 @@ function Page() {
             </Checkbox>
           </ConfigProvider>
         </div>
+        <div className="mt-[14px]">
+          <p>
+            Forget Password ?{" "}
+            <Link
+              href={"/resetpassword"}
+              className="cursor-pointer text-amber-600 hover:scale-105"
+            >
+              Reset Now !
+            </Link>
+          </p>
+        </div>
         <button
           onClick={handleLogin}
           className="w-[300px] mt-[20px] transition-all hover:scale-105 text-[20px] text-white bg-amber-600 h-[50px] rounded-xl"
         >
-          <p>Login</p>
+          <p>{buttonText}</p>
         </button>
         <div className="mt-[14px]">
           <p>

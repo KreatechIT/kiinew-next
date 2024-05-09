@@ -130,7 +130,9 @@ function Header() {
             <div className="flex place-items-center space-x-[15px]">
               <Link
                 href={
-                  localStorage.getItem("access_token") ? "/profile" : "/login"
+                  window.localStorage.getItem("access_token")
+                    ? "/profile"
+                    : "/login"
                 }
               >
                 <FontAwesomeIcon

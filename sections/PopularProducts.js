@@ -91,7 +91,7 @@ function PopularProducts() {
     <div className="flex flex-col justify-center items-center">
       <div className="h-auto flex w-1/2 flex-col py-[60px] justify-center items-center">
         <h1 className="text-black text-center text-[40px] font-semibold tracking-[6px]">
-          POPULAR PRODUCTS
+          YOU MAY LIKE IT
         </h1>
         <p className="text-black mt-[20px] text-center text-[16px] tracking-[4px]">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
@@ -147,7 +147,7 @@ function PopularProducts() {
                     className="w-[96%] overflow-hidden relative h-full border-2 border-black/20"
                   >
                     {hoveredIndex == index && isHovered && (
-                      <Fade className="w-full h-[75%] shadow-amber-600/70 shadow-3xl bg-amber-600/70 absolute z-[9]">
+                      <Fade className="w-full h-[100%] shadow-amber-600/70 shadow-3xl bg-amber-600/70 absolute z-[9]">
                         <div className="">
                           <Slide direction="down">
                             <h1

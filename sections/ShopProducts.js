@@ -134,7 +134,7 @@ function ShopProducts() {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <div className="flex">
-      <div className="laptop:flex justify-center items-center flex-col mobile:hidden w-[20%] ml-[2%] mt-[60px]">
+      <div className="laptop:flex  items-center flex-col mobile:hidden w-[20%] ml-[2%] mt-[60px]">
         <div className="flex flex-col w-[90%] items-start">
           <div className="flex mb-[30px] place-items-center space-x-4 place-content-center">
             <div className="bg-amber-600 size-[10px]" />

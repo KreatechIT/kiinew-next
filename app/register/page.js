@@ -16,7 +16,7 @@ function Page() {
   const handleRegister = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8000/wp-json/wp/v2/users/register/",
+        "http://localhost:8000/wp-json/custom/v1/register/",
         {
           method: "POST",
           headers: {

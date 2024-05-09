@@ -71,7 +71,7 @@ function MobileHeader({ active, drawerOpen, handleCloseDrawer }) {
                 <h1>{el.name}</h1>
               </Link>
             ))}
-            {localStorage.getItem("access_token") ? (
+            {window.localStorage.getItem("access_token") ? (
               <Link href={"/profile"} onClick={handleCloseDrawer}>
                 <h1>Profile</h1>
               </Link>

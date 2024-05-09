@@ -35,7 +35,7 @@ function Page() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("access_token");
+    window.localStorage.removeItem("access_token");
     router.push("/login");
     console.log("Logging out...");
     message.success("Logged out successfully.");
